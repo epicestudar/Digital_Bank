@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
  * Conta
  */
 public class Conta extends Pessoa {
-    public double saldo; //  akjskjak
+    public double saldo; 
     public int codigo = 0;
     public String contaTipo;
     public int senha;
@@ -16,24 +16,24 @@ public class Conta extends Pessoa {
         setIdade(Integer.parseInt(JOptionPane.showInputDialog("Informe sua idade: ")));
 
         if (getIdade() >= 18) {
-            int receber = Integer.parseInt(JOptionPane
-                    .showInputDialog("Escolha o tipo de conta (1 - Conta Pessoa Física; 2 - Conta Pessoa Jurídica)"));
+            int escolha = Integer.parseInt(JOptionPane
+                    .showInputDialog("Escolha o tipo de conta que quer (1 - Pessoa Física; 2 - Pessoa Jurídica)"));
 
-            switch (receber) {
+            switch (escolha) {
                 case 1: {
-                    JOptionPane.showMessageDialog(null, "Criação de Conta: Pessoa Física");
+                    JOptionPane.showMessageDialog(null, "Você escolheu a conta de tipo Pessoa Física!");
                     setNome(JOptionPane.showInputDialog("Informe o nome da conta: "));
                     setSenha(Integer
-                            .parseInt(JOptionPane.showInputDialog("Informe a senha da conta (Apenas 6 digitos): ")));
+                            .parseInt(JOptionPane.showInputDialog("Informe a senha da conta: ")));
                    setCpf(JOptionPane.showInputDialog("Informe o seu CPF: "));
                     setContaTipo("Conta PF");
                     break;
                 }
                 case 2: {
-                    JOptionPane.showMessageDialog(null, "Criação de Conta: Pessoa Jurídica");
+                    JOptionPane.showMessageDialog(null, "Você escolheu a conta de tipo Pessoa Jurídica!");
                     setNome(JOptionPane.showInputDialog("Informe o nome da conta: "));
                     setSenha(Integer
-                            .parseInt(JOptionPane.showInputDialog("Informe a senha da conta (Apenas 6 digitos): ")));
+                            .parseInt(JOptionPane.showInputDialog("Informe a senha da conta: ")));
                     setCnpj(JOptionPane.showInputDialog("Informe o seu CNPJ: "));
                     setContaTipo("Conta PJ");
                     break;
@@ -43,19 +43,19 @@ public class Conta extends Pessoa {
                     break;
             }
         } else {
-            JOptionPane.showMessageDialog(null, "Somente adultos maiores de 18 anos podem criar conta!");
+            JOptionPane.showMessageDialog(null, "Somente pessoas com 18 anos ou mais podem criar a conta!");
         }
          
          }
     
          public void entrarConta() {
             JOptionPane.showMessageDialog(null, "Entrar na conta.");
-            String nome = JOptionPane.showInputDialog(null, "Escreva o nome da conta: ");
+            String nome = JOptionPane.showInputDialog(null, "Escreva o nome da conta que quer entrar: ");
             
             if(nome.equals(getNome())) {
-                int receber = Integer.parseInt(JOptionPane.showInputDialog(null, "Escreva o que deseja fazer: " + "\n 1 - Verificar saldo" + "\n 2- Saque" + "\n 3 - Depósito" + "\n 4 - Empréstimo " + "\n 5 - Sair"));
+                int escolha = Integer.parseInt(JOptionPane.showInputDialog(null, "Escreva o que deseja fazer: " + "\n 1 - Verificar saldo" + "\n 2- Sacar" + "\n 3 - Fazer depósito" + "\n 4 - Empréstimo do banco" + "\n 5 - Sair"));
 
-                switch (receber) {
+                switch (escolha) {
                    case 1: {
                     saque();
                     break;
@@ -76,12 +76,11 @@ public class Conta extends Pessoa {
 
          }
 
-    //Método Incompleto
     public double saque(){ 
-         JOptionPane.showMessageDialog(null, "Método de Saque");
+         JOptionPane.showMessageDialog(null, "Página de Saque");
         double saquear = Double.parseDouble(
-                JOptionPane.showInputDialog("informe a quantidade de valores para saquear (Limite: 3000):"));
-        if (saquear > 0 && saquear < 3000) {
+                JOptionPane.showInputDialog("informe a quantidade de valores para saquear (Limite: 4973):"));
+        if (saquear > 0 && saquear < 4973) {
             if (!(saldo < saquear)) {
                 saldo = saldo - saquear;
             } else {
@@ -94,9 +93,9 @@ public class Conta extends Pessoa {
     }
 
     public double emprestimo() {
-        JOptionPane.showMessageDialog(null,"Método de Empréstimos");
-        double emprestar = Integer.parseInt(JOptionPane.showInputDialog("Selecione a quantidade de valores que quer pro empréstimo (Limite: 80.000):"));
-         if(emprestar > 1000 && emprestar < 80.000)
+        JOptionPane.showMessageDialog(null,"Página de Empréstimos");
+        double emprestar = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor que quer para o empréstimo: (Valor mínimo: 1500 e Limite: 110.500):"));
+         if(emprestar > 1500 && emprestar < 110.500)
         {
             emprestimo += emprestar;
         }
@@ -109,7 +108,7 @@ public class Conta extends Pessoa {
 
    // Método de Depósito
     public double deposito() {
-        JOptionPane.showMessageDialog(null, "Método de Depósito");
+        JOptionPane.showMessageDialog(null, "Página de Depósito");
         double deposito = Double.parseDouble(
                 JOptionPane.showInputDialog("Informe o valor para depositar:"));
         saldo = saldo + deposito;

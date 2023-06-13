@@ -7,12 +7,12 @@ public class Main {
 
      public static void main(String[] args) {
         Conta[] Conta = new Conta[1];
-        int receber, x, contaAtual = 0;
+        int banco, x, contaAtual = 0;
         do {
-            JOptionPane.showMessageDialog(null, "Programa do Banco");
-            receber = Integer
-                    .parseInt(JOptionPane.showInputDialog("Pressione: \n1 - Criar conta; \n2 - Buscar conta."));
-            switch (receber) {
+            JOptionPane.showMessageDialog(null, "Bem-vindo ao nosso banco!");
+            banco = Integer
+                    .parseInt(JOptionPane.showInputDialog("Escolha uma opção: \n1 - Criar conta. \n2 - Buscar conta."));
+            switch (banco) {
                 case 1: {
                     for (int i = 0; i < Conta.length; i++) {
                         Conta[i] = new Conta();
@@ -23,15 +23,15 @@ public class Main {
                 }
                 case 2: {
                     int cont = 0;
-                    boolean encontrar = true;
+                    boolean achar = true;
                     JOptionPane.showMessageDialog(null, "Buscar Contas");
                     String buscarNome = JOptionPane.showInputDialog("Informe o nome da conta para ser buscado:");
-                    int y = Integer.parseInt(JOptionPane.showInputDialog(
+                    int acessarConta = Integer.parseInt(JOptionPane.showInputDialog(
                             "O que deseja fazer? \n1 - Ver informações da conta \n2 - Acessar conta"));
 
-                    switch (y) {
+                    switch (acessarConta) {
                         case 1: {
-                            while (encontrar) {
+                            while (achar) {
                                 if (buscarNome.equals(Conta[cont].getNome())) {
                                     contaAtual = cont;
                                     if (Conta[cont].getContaTipo().equals("Conta PF")) {
@@ -51,7 +51,7 @@ public class Main {
                                                         + Conta[cont].getSaldo());
 
                                     }
-                                    encontrar = false;
+                                    achar = false;
                                 } else {
                                     cont++;
                                 }
