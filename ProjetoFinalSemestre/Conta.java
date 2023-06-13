@@ -4,7 +4,7 @@ import javax.swing.JOptionPane;
  * Conta
  */
 public class Conta extends Pessoa {
-    public double saldo;
+    public double saldo; //  akjskjak
     public int codigo = 0;
     public String contaTipo;
     public int senha;
