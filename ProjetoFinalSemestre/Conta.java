@@ -53,7 +53,7 @@ public class Conta extends Pessoa {
             String nome = JOptionPane.showInputDialog(null, "Escreva o nome da conta que quer entrar: ");
             
             if(nome.equals(getNome())) {
-                int escolha = Integer.parseInt(JOptionPane.showInputDialog(null, "Escreva o que deseja fazer: " + "\n 1 - Verificar saldo" + "\n 2- Sacar" + "\n 3 - Fazer depósito" + "\n 4 - Empréstimo do banco" + "\n 5 - Sair"));
+                int escolha = Integer.parseInt(JOptionPane.showInputDialog(null, "Escreva o que deseja fazer: " + "\n 1 - Sacar" + "\n 2- Fazer depósito" + "\n 3 - Empréstimo do banco" + "\n 4 - Sair"));
 
                 switch (escolha) {
                    case 1: {
@@ -83,7 +83,8 @@ public class Conta extends Pessoa {
         if (saquear > 0 && saquear < 4973) {
             if (!(saldo < saquear)) {
                 saldo = saldo - saquear;
-            } else {
+                JOptionPane.showMessageDialog(null, "Saque feito");
+            } else if{
                 JOptionPane.showInputDialog("não é possível fazer o saque (saldo insuficiente).");
             }
         } else {
@@ -97,6 +98,7 @@ public class Conta extends Pessoa {
         double emprestar = Integer.parseInt(JOptionPane.showInputDialog("Informe o valor que quer para o empréstimo: (Valor mínimo: 1500 e Limite: 110.500):"));
          if(emprestar > 1500 && emprestar < 110.500)
         {
+             JOptionPane.showMessageDialog(null, "Empréstimo feito!");
             emprestimo += emprestar;
         }
         else{
